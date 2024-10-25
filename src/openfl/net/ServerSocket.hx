@@ -149,7 +149,7 @@ class ServerSocket extends EventDispatcher
 			__serverSocket.bind(host, localPort);
 
 			var serverHost = __serverSocket.host();
-			this.localAddress = serverHost.host.host;
+			this.localAddress = serverHost.host.host != null ? serverHost.host.host : localAddress;
 			this.localPort = serverHost.port;
 			bound = true;
 		}
