@@ -137,7 +137,7 @@ class CanvasGraphics
 				{
 					ratio = ratios[i] / 0xFF;
 					if (ratio < 0) ratio = 0;
-					if (ratio > 1) ratio = 1;
+					else if (ratio > 1) ratio = 1;
 
 					gradientFill.addColorStop(ratio, getRGBA(colors[i], alphas[i]));
 				}
@@ -161,7 +161,7 @@ class CanvasGraphics
 					{
 						ratio = ratios[i] / 0xFF;
 						if (ratio < 0) ratio = 0;
-						if (ratio > 1) ratio = 1;
+						else if (ratio > 1) ratio = 1;
 
 						gradientFill.addColorStop(ratio, getRGBA(colors[i], alphas[i]));
 					}
@@ -195,7 +195,7 @@ class CanvasGraphics
 							ratio = ratios[i] / 0xFF;
 							ratio = t + ratio * step;
 							if (ratio < 0) ratio = 0;
-							if (ratio > 1) ratio = 1;
+							else if (ratio > 1) ratio = 1;
 
 							gradientFill.addColorStop(ratio, getRGBA(colors[i], alphas[i]));
 						}
@@ -206,7 +206,7 @@ class CanvasGraphics
 							ratio = ratios[a] / 0xFF;
 							ratio = t + (1.0 - ratio) * step;
 							if (ratio < 0) ratio = 0;
-							if (ratio > 1) ratio = 1;
+							else if (ratio > 1) ratio = 1;
 							gradientFill.addColorStop(ratio, getRGBA(colors[a], alphas[a]));
 							a--;
 						}
@@ -225,14 +225,14 @@ class CanvasGraphics
 							ratio = ratios[i] / 0xFF;
 							ratio = t + ratio * step;
 							if (ratio < 0) ratio = 0;
-							if (ratio > 1) ratio = 1 - 0.001;
+							else if (ratio > 1) ratio = 1 - 0.001;
 
 							gradientFill.addColorStop(ratio, getRGBA(colors[i], alphas[i]));
 						}
 
 						ratio = t + 0.001;
 						if (ratio < 0) ratio = 0;
-						if (ratio > 1) ratio = 1;
+						else if (ratio > 1) ratio = 1;
 						gradientFill.addColorStop(ratio - 0.001, getRGBA(colors[colors.length - 1], alphas[alphas.length - 1]));
 						gradientFill.addColorStop(ratio, getRGBA(colors[0], alphas[0]));
 

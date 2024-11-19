@@ -136,7 +136,7 @@ class CairoGraphics
 
 			ratio = ratios[i] / 0xFF;
 			if (ratio < 0) ratio = 0;
-			if (ratio > 1) ratio = 1;
+			else if (ratio > 1) ratio = 1;
 
 			pattern.addColorStopRGBA(ratio, r, g, b, alpha);
 		}
