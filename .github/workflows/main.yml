@@ -124,7 +124,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: openfl/lime
-          path: ${{ github.workspace }}/../lime
+          path: lime-develop
           submodules: true
 
       - uses: krdlab/setup-haxe@master
@@ -150,11 +150,11 @@ jobs:
       - name: Setup environment
         run: |
           haxelib dev openfl ${{ github.workspace }}
-          haxelib dev lime ${{ github.workspace }}/../lime
+          haxelib dev lime ${{ github.workspace }}/lime-develop
 
       - name: Install HashLink dependencies with Homebrew
         run: |
-          pushd ${{ github.workspace }}/../lime/project/lib/hashlink
+          pushd ${{ github.workspace }}/lime-develop/project/lib/hashlink
           brew update
           rm /usr/local/bin/2to3*
           rm /usr/local/bin/idle3*
