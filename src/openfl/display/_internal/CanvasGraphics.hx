@@ -452,6 +452,17 @@ class CanvasGraphics
 						strokeCommands.lineBitmapStyle(c.bitmap, c.matrix, c.repeat, c.smooth);
 
 					case LINE_STYLE:
+						endStroke();
+
+						if (hasStroke && (context : Dynamic).isPointInStroke(x, y))
+						{
+							data.destroy();
+							graphics.__canvas = cacheCanvas;
+							graphics.__context = cacheContext;
+							CanvasGraphics.graphics = null;
+							return true;
+						}
+
 						var c = data.readLineStyle();
 						strokeCommands.lineStyle(c.thickness, c.color, 1, c.pixelHinting, c.scaleMode, c.caps, c.joints, c.miterLimit);
 

@@ -285,6 +285,15 @@ class CairoGraphics
 						strokeCommands.moveTo(c.x, c.y);
 
 					case LINE_STYLE:
+						endStroke();
+
+						if (hasStroke && cairo.inStroke(x, y))
+						{
+							data.destroy();
+							CairoGraphics.graphics = null;
+							return true;
+						}
+
 						var c = data.readLineStyle();
 						strokeCommands.lineStyle(c.thickness, c.color, 1, c.pixelHinting, c.scaleMode, c.caps, c.joints, c.miterLimit);
 
