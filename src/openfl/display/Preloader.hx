@@ -153,7 +153,7 @@ class Preloader
 		progress.alpha = 0;
 		addChild(progress);
 
-		startAnimation = Lib.getTimer() + 100;
+		startAnimation = Math.floor(Lib.getTimer()) + 100;
 		endAnimation = startAnimation + 1000;
 
 		addEventListener(Event.ADDED_TO_STAGE, this_onAddedToStage);
